@@ -4,15 +4,13 @@ public class CoronaNews {
 
     String sName;
     String title;
-    String content;
     String description;
     String publishedAt;
     String url;
 
-    public CoronaNews(String sName, String title, String content, String description,String publishedAt, String url) {
+    public CoronaNews(String sName, String title, String description,String publishedAt, String url) {
         this.sName = sName;
         this.title = title;
-        this.content = content;
         this.description = description;
         this.publishedAt=publishedAt;
         this.url = url;
@@ -34,13 +32,6 @@ public class CoronaNews {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 
     public String getDescription() {
         return description;
