@@ -2,45 +2,47 @@
 <!-- Layout for a single list item that displays an corona news -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
-    android:orientation="horizontal"
-    android:paddingEnd="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingStart="16dp"
     android:id="@+id/corona_news_list_item"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="50pt"
+    android:background="#F0424242"
+    android:orientation="horizontal"
+    android:paddingStart="5dp"
+    android:paddingLeft="5dp"
+    android:paddingEnd="5dp"
+    android:paddingRight="5dp">
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45pt"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="2pt"
+        android:layout_marginLeft="2pt"
         android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/source"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="10pt"
             android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
             android:textAllCaps="true"
-            android:textColor="@color/textColorCoronaNewsSource"
+            android:textColor="#8E0520"
             android:textSize="12sp"
             tools:text="Source" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="26pt"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:textColor="@color/textColorCoronaDetails"
+            android:maxLines="6"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#F6F5F5"
             android:textSize="16sp"
+            android:visibility="visible"
             tools:text="Long placeholder location that should wrap to more than 2 lines of text" />
 
     </LinearLayout>
@@ -49,25 +51,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30pt"
+            android:layout_height="10pt"
             android:layout_gravity="end"
-            android:textColor="@color/textColorCoronaDetails"
+            android:textColor="#F0EEF4"
             android:textSize="12sp"
             tools:text="Mar 6, 2010" />
 
         <TextView
             android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30pt"
+            android:layout_height="10pt"
             android:layout_gravity="end"
-            android:textColor="@color/textColorCoronaDetails"
+            android:textColor="#FCFBFF"
             android:textSize="12sp"
             tools:text="3:00 PM" />
 

@@ -13,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -28,9 +30,9 @@ public class MainActivity extends AppCompatActivity
     private static final String LOG_TAG = MainActivity.class.getName();
 
     /** URL for corona data from the News API */
-    private static final String CORONA_NEWS_REQUEST_URL ="https://news.google.com/rss/search?q=Corona%20Case%20update&hl=en-IN&gl=IN&ceid=IN:en";
+    private static final String CORONA_NEWS_REQUEST_URL ="https://news.google.com/rss/search?q=Corona%20Case%20update%20in%20india&hl=en-IN&gl=IN&ceid=IN:en";
 
-            //"http://newsapi.org/v2/everything?q=corona+Cases+Update+in+india&from=2020-02-19&sortBy=publishedAt&language=en&apiKey=597e9c17456e47518c13d08587f5e9b0";
+
 
     /**
      * Constant value for the earthquake loader ID. We can choose any integer.
@@ -111,6 +113,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+
     @Override
     public Loader<List<CoronaNews>> onCreateLoader(int id, Bundle args) {
         return new CoronaNewsLoader(this, CORONA_NEWS_REQUEST_URL);
@@ -138,5 +141,28 @@ public class MainActivity extends AppCompatActivity
     public void onLoaderReset(Loader<List<CoronaNews>> loader) {
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.mbEmbeddedIndiaStateWiseWebView) {
+            Intent settingsIntent = new Intent(this, india_statewiise_corona_cases.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        else if (id == R.id.mbEmbeddedWebView)
+        {
+            Intent settingsIntent = new Intent(this, web_view_for_corona_map.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
