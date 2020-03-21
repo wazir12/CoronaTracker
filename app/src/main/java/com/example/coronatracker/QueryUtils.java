@@ -1,25 +1,22 @@
 package com.example.coronatracker;
 
-import android.text.TextUtils;
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.List;
 
 public final class QueryUtils {
 
@@ -48,26 +45,74 @@ public final class QueryUtils {
      * Return a list of {@link CoronaNews} objects that has been built up from
      * parsing a JSON response.
      */
-    public static ArrayList<CoronaNews> extractCoronaNews(String requestUrl) throws XmlPullParserException {
+    public static ArrayList<CoronaNews> extractCoronaNews(String requestUrl)  {
 
         // Create URL object
         URL url = createUrl(requestUrl);
         ArrayList<CoronaNews> corona = null;
+        ArrayList<CoronaNews> Response = new ArrayList<CoronaNews>();
 
         // Perform HTTP request to the URL and receive a JSON response back
-        InputStream rssResponse = null;
+        String rssResponse = null;
         try {
-            corona = makeHttpRequest(url);
+            rssResponse = makeHttpRequest(url);
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
-        // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
-        //  ArrayList<CoronaNews> corona = extractArticlesFromJson(rssResponse);
+        // Extract relevant fields from the JSON response and create a list of {@link CoronaNews}
+          Response = extractItemsFromRss(rssResponse);
 
         // Return the list of {@link CoronaNews}s
-        return corona;
+        return Response;
 
+    }
+
+    private static ArrayList<CoronaNews> extractItemsFromRss(String rssResponse) {
+        ArrayList<CoronaNews> Response = new ArrayList<CoronaNews>();
+        rssResponse = rssResponse.trim();
+        String pattern1 = "<item>";
+        String pattern2 = "</item>";
+        String itemElement ="";
+        ArrayList<String>  extractedItems = new ArrayList<String>();
+        int Itemlength=0;
+        while(!rssResponse.startsWith("</channel>"))
+        {
+            int sIndex = rssResponse.indexOf("<item>")+6;
+            int eIndex = rssResponse.indexOf("</item>");
+            int length = rssResponse.length();
+            if(sIndex<length)
+            {
+                extractedItems.add(rssResponse.substring(sIndex,eIndex));
+               // Itemlength+=extractedItems.size();
+                rssResponse = rssResponse.substring(eIndex+7);
+            }
+        }
+        Response=extractDatafromItems(extractedItems);
+
+        return Response;
+    }
+
+    private static ArrayList<CoronaNews> extractDatafromItems(ArrayList<String> extractedItems)
+    {
+        String title = "";
+        String url = "";
+        String source = "";
+        String pubDate = "";
+        ArrayList<CoronaNews> Response = new ArrayList<CoronaNews>();
+        for (String item: extractedItems)
+        {
+           title = item.substring(item.indexOf("<title>")+7,item.indexOf("</title>"));
+            url = item.substring(item.indexOf("<link>")+6,item.indexOf("</link>"));
+            pubDate = item.substring(item.indexOf("<pubDate>")+9,item.indexOf("</pubDate>"));
+            item = item.substring(item.indexOf("</description>")+14);
+            item=item.replaceAll("<(\\S*?)[^>]*>.*?|<.*? />","@");
+            source = item.replaceAll("@","");
+            CoronaNews coronaNews = new CoronaNews(source,title,pubDate,url);
+
+            Response.add(coronaNews);
+        }
+        return Response;
     }
 
     private static URL createUrl(String stringUrl) {
@@ -84,15 +129,16 @@ public final class QueryUtils {
     /**
      * Make an HTTP request to the given URL and return a String as the response.
      */
-    private static ArrayList<CoronaNews> makeHttpRequest(URL url) throws IOException {
-        String jsonResponse = "";
+    private static String makeHttpRequest(URL url) throws IOException {
+        String rssResponse = "";
 
         // If the URL is null, then return early.
 
         InputStream stream = null;
         HttpURLConnection urlConnection = null;
         InputStream inputStream = null;
-        ArrayList<CoronaNews> corona =null;
+        ArrayList<CoronaNews> corona = null;
+
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(10000 /* milliseconds */);
@@ -104,13 +150,13 @@ public final class QueryUtils {
             // then read the input stream and parse the response.
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
-                //   jsonResponse = readFromStream(inputStream);
-                corona = extractArticlesFromJson(inputStream);
+                rssResponse = readFromStream(inputStream);
+
 
             } else {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
-        } catch (IOException | XmlPullParserException e) {
+        } catch (IOException e) {
             Log.e(LOG_TAG, "Problem retrieving the Corona JSON results.", e);
         } finally {
             if (urlConnection != null) {
@@ -123,9 +169,8 @@ public final class QueryUtils {
                 inputStream.close();
             }
         }
-    return corona;
+        return rssResponse;
     }
-
 
 
     /**
@@ -133,101 +178,29 @@ public final class QueryUtils {
      * whole JSON response from the server.
      */
     private static String readFromStream(InputStream inputStream) throws IOException {
+        // Create an empty ArrayList that we can start adding corona news to
+       /* ArrayList<CoronaNews> cNews = new ArrayList<>();
+        String title = "";
+        String publishedAt ="" ;
+        String description = "";
+        String url = "";
+        String sName = "";*/
+
         StringBuilder output = new StringBuilder();
         if (inputStream != null) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
             BufferedReader reader = new BufferedReader(inputStreamReader);
-            String line = reader.readLine();
-            while (line != null) {
-                output.append(line);
-                line = reader.readLine();
+            String line = "";
+
+            while ((line=reader.readLine()) != null)
+            {
+               output.append(line);
             }
         }
-        return output.toString();
+        return  output.toString();
     }
 
-    /**
-     * Return a list of {@link CoronaNews} objects that has been built up from
-     * parsing the given JSON response.
-     */
-    private static ArrayList<CoronaNews> extractArticlesFromJson(InputStream stream) throws XmlPullParserException {
-        // If the JSON string is empty or null, then return early.
-        if (stream == null) {
-            return null;
-        }
-
-        // Create an empty ArrayList that we can start adding corona news to
-        ArrayList<CoronaNews> cNews = new ArrayList<>();
-        String title=null;
-        String publishedAt =null ;
-        String description =null;
-        String url=null;
-        String sName=null;
-        boolean parsingComplete = true;
-        try {
-
-            XmlPullParserFactory xmlFactoryObject = XmlPullParserFactory.newInstance();
-            XmlPullParser myparser = xmlFactoryObject.newPullParser();
-
-            myparser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            myparser.setInput(stream, null);
-
-            int event;
-            String text = null;
-
-
-                event = myparser.getEventType();
-
-                while (event != XmlPullParser.END_DOCUMENT) {
-                    String name = myparser.getName();
-
-                    switch (event) {
-                        case XmlPullParser.START_TAG:
-                            break;
-
-                        case XmlPullParser.TEXT:
-                            text = myparser.getText();
-                            break;
-
-                        case XmlPullParser.END_TAG:
-
-                            if (name.equals("title")) {
-                                title = text;
-                            } else if (name.equals("link")) {
-                                url = text;
-                            } else if (name.equals("description")) {
-                                description = text;
-                            } else if (name.equals("pubDate")) {
-                                publishedAt = text;
-                            } else if (name.equals("source")) {
-                                sName = text;
-                            } else {
-                            }
-
-                            break;
-                    }
-
-                    event = myparser.next();
-                }
-
-                parsingComplete = false;
-
-
-                // Create a new {@link CoronaNews} object with the ,
-                // and url from the JSON response.
-                CoronaNews coNews = new CoronaNews(sName, title, description, publishedAt, url);
-
-                // Add the new {@link CoronaNews} to the list of CoronaNews.
-                cNews.add(coNews);
 
 
 
-
-        }catch (XmlPullParserException | IOException e) {
-
-            Log.e("QueryUtils", "Problem parsing the CoronaNews JSON results", e);
-        }
-        // Return the list of CoronaNews
-        return cNews;
-    }
 }

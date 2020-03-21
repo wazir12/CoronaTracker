@@ -36,7 +36,7 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:layout_height="26pt"
+            android:layout_height="35pt"
             android:ellipsize="end"
             android:maxLines="6"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"

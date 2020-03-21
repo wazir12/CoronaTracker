@@ -44,13 +44,11 @@ public class CoronaNewsLoader extends AsyncTaskLoader<List<CoronaNews>> {
             return null;
         }
 
-        // Perform the network request, parse the response, and extract a list of earthquakes.
+        // Perform the network request, parse the response, and extract a list of News.
         List<CoronaNews> coronaNews = null;
-        try {
+
             coronaNews = QueryUtils.extractCoronaNews(mUrl);
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        }
+
         return coronaNews;
     }
 }

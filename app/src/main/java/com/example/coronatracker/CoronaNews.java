@@ -8,10 +8,10 @@ public class CoronaNews {
     String publishedAt;
     String url;
 
-    public CoronaNews(String sName, String title, String description,String publishedAt, String url) {
+    public CoronaNews(String sName, String title,String publishedAt, String url) {
         this.sName = sName;
         this.title = title;
-        this.description = description;
+
         this.publishedAt=publishedAt;
         this.url = url;
     }
@@ -33,13 +33,6 @@ public class CoronaNews {
     }
 
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getUrl() {
         return url;
