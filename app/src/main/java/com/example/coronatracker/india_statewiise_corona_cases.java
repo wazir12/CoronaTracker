@@ -13,7 +13,8 @@ import android.webkit.WebViewClient;
 public class india_statewiise_corona_cases extends AppCompatActivity {
 
     private WebView webView;
-    private  String Load_url="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/";
+    private  String Load_url="https://covidout.in/";
+//"""//https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/";
     private final static long threshold = 150000;
     private Handler handler = null;
     private HandlerThread handlerThread = null;
