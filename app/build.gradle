@@ -5,13 +5,15 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        applicationId "com.example.coronatracker"
-        minSdkVersion 16
+        applicationId "com.lwazir.coronatracker"
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName '1.0.0'
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+        manifestPlaceholders = [:]
     }
 
     buildTypes {
@@ -19,6 +21,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 
 }

@@ -1,17 +1,11 @@
-package com.example.coronatracker;
+package com.lwazir.coronatracker;
 
 import android.util.Log;
 
-import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;

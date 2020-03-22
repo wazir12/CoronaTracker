@@ -1,4 +1,4 @@
-package com.example.coronatracker;
+package com.lwazir.coronatracker;
 
 public class CoronaNews {
 

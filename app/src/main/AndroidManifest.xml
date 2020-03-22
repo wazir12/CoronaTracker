@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coronatracker">
+    android:versionCode="01"
+    android:versionName="1.0.0"
+    android:installLocation="auto"
+    package="com.lwazir.coronatracker">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,11 +11,15 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/corona_app_icon"
-        android:label="@string/app_name"
+        android:label= "@string/app_name"
+        android:logo="@mipmap/corona_app_icon"
         android:roundIcon="@mipmap/corona_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/MyToolbarTheme">
-        <activity android:name=".Main_Tab_Activity">
+        <activity android:name=".Main_Tab_Activity"
+            android:label="@string/app_name"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

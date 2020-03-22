@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CoronaTracker</string>
+    <string name="app_name">Corona Tracker</string>
     <!-- Text to display in the list when there are no News related to Corona [CHAR LIMIT=NONE] -->
     <string name="no_corona_news">No Corona News found.</string>
 
@@ -8,27 +8,7 @@
     <string name="title_activity_web_view">web_view</string>
     <string name="large_text">
         What Is Self Diagnosis?
-
-1. Start the survey by clicking "Start questionnaire"
-
-The survey contains questions regarding your current symptoms, travel, and contact history. Completing the survey takes approximately 5 minutes. Please try to answer the questions as precisely as possible.
-
-2. Survey and recommendations
-
-At the end of the survey, We will summarizes your answers and provides you with an recommendation for action, for instance:
-
-Advice to contact the public hotline for Coronavirus
-Advice to contact your general practitioner
-Advice on social distancing
-3. Preparation for doctor’s visit
-
-When you are given the advice for a doctor’s visit or a visit to one of the Coronavirus testing sites, please bring the QR code or print the summary presented. Some Coronavirus testing sites (like the Charité) can scan the code so that your answers are made directly available to our medical staff and can be used for your consultation. This helps to speed up the process of the medical interview. If visiting your local physician or any other Coronavirus testing site
-Which data will be transmitted through the internet?
-The survey is evaluated anonymously, and all information will be processed on your device (for example, your smartphone). None of your answers will be forwarded to us, our server or any other third party.
-
-If in doubt, see a doctor!
-The use of this app does not qualify as medical treatment. If you currently feel seriously ill, please seek medical help.
-    </string>
+   </string>
     <string name="action_settings">Settings</string>
     <string name="corona_Map_view">Graphical View of Corona Cases</string>
     <string name="corona_country_district_view">State-wise/Country View</string>

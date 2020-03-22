@@ -1,4 +1,4 @@
-package com.example.coronatracker;
+package com.lwazir.coronatracker;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
