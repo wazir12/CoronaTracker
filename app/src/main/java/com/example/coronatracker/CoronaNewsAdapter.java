@@ -1,6 +1,9 @@
 package com.example.coronatracker;
 
 import android.content.Context;
+
+
+//import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +59,8 @@ public class CoronaNewsAdapter extends ArrayAdapter<CoronaNews>
         titleView.setText(title);
 
 
-        String date =currentCoronaNews.getPublishedAt().substring(0,9);
-        String time =currentCoronaNews.getPublishedAt().substring(11,18);
+        String date = formatDate(new Date(currentCoronaNews.getPublishedAt()));
+        String time = formatTime(new Date(currentCoronaNews.getPublishedAt()));
 
 
 

@@ -5,7 +5,7 @@
     android:id="@+id/corona_news_list_item"
     android:layout_width="match_parent"
     android:layout_height="50pt"
-    android:background="#F0424242"
+    android:background="#F0FAF8F8"
     android:orientation="horizontal"
     android:paddingStart="5dp"
     android:paddingLeft="5dp"
@@ -29,8 +29,8 @@
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
             android:textAllCaps="true"
-            android:textColor="#8E0520"
-            android:textSize="12sp"
+            android:textColor="#D84315"
+            android:textSize="14sp"
             tools:text="Source" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:ellipsize="end"
             android:maxLines="6"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#F6F5F5"
+            android:textColor="#0B0B0B"
             android:textSize="16sp"
             android:visibility="visible"
             tools:text="Long placeholder location that should wrap to more than 2 lines of text" />
@@ -57,20 +57,20 @@
 
         <TextView
             android:id="@+id/date"
-            android:layout_width="30pt"
+            android:layout_width="35pt"
             android:layout_height="10pt"
             android:layout_gravity="end"
-            android:textColor="#F0EEF4"
-            android:textSize="12sp"
+            android:textColor="#070707"
+            android:textSize="14sp"
             tools:text="Mar 6, 2010" />
 
         <TextView
             android:id="@+id/time"
-            android:layout_width="30pt"
+            android:layout_width="34pt"
             android:layout_height="10pt"
             android:layout_gravity="end"
-            android:textColor="#FCFBFF"
-            android:textSize="12sp"
+            android:textColor="#0E0E0E"
+            android:textSize="14sp"
             tools:text="3:00 PM" />
 
     </LinearLayout>
