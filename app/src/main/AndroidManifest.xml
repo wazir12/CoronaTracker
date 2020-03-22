@@ -7,14 +7,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/corona_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/corona_app_icon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
-        <activity android:name=".web_view_for_corona_map"/>
-        <activity android:name=".india_statewiise_corona_cases" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/MyToolbarTheme">
+        <activity android:name=".Main_Tab_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
