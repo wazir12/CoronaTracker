@@ -22,7 +22,7 @@ import android.webkit.WebViewClient;
 public class India_State_wise_Graphical_View_Fragment extends Fragment {
 
     private WebView webView;
-    private  String Load_url="https://www.digitalocean1.com/community/questions/website-not-reachable-for-some-reason";//https://corona.health-check.in/index";
+    private  String Load_url="https://corona.health-check.in/index";
     private String default_url = "https://www.mohfw.gov.in/";
     //"""//https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/";
     private final static long threshold = 150000;
