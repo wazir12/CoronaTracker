@@ -5,4 +5,5 @@ It contains the following functionalities:
 2. News Aggregator Functionality, that displays relevant news about covid-19 by extracting data from various internet sources 
 3. Self Diagnosis Bot which ask users certains questions and based on their interaction make recommendation
 
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6651840396315947018" height="708" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
+checkout the demo of this app here - https://www.linkedin.com/posts/lalitwazir_hi-everyone-i-have-build-an-android-application-activity-6651840488661938176-PvFM  
