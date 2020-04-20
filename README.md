@@ -21,12 +21,13 @@ Screenshots
 Application Demo
 ---------------
 
-https://www.linkedin.com/posts/lalitwazir_hi-everyone-i-have-build-an-android-application-activity-6651840488661938176-PvFM
+* https://www.linkedin.com/posts/lalitwazir_hi-everyone-i-have-build-an-android-application-activity-6651840488661938176-PvFM
 
 Sample Apk file for installing on your android phone
 -----------------------------------------------------
 
-https://github.com/wazir12/CoronaTracker/blob/master/app-release.apk
+Please Note this requires internet connection, so before running it please ensure you have a good internet connection
+* https://github.com/wazir12/CoronaTracker/blob/master/app-release.apk
 
 
 
