@@ -21,7 +21,7 @@ Screenshots
 Application Demo
 ---------------
 
-* https://www.linkedin.com/posts/lalitwazir_hi-everyone-i-have-build-an-android-application-activity-6651840488661938176-PvFM
+*https://www.youtube.com/watch?v=4xoZXZfdI8c&feature=youtu.be
 
 Sample Apk file for installing on your android phone
 -----------------------------------------------------
