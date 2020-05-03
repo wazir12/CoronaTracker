@@ -11,20 +11,15 @@ It contains the following functionalities:
 
 Screenshots
 -----------
-![about page]("CoronaTracker/About_page.jpg")
-![menu]("CoronaTracker/side_menu.png")
-![dashboard]("https://github.com/wazir12/CoronaTracker/blob/master/dashboard.png", "main dashboard")
-![news]("https://github.com/wazir12/CoronaTracker/blob/master/news.png", "News related to covid-19 virus")
-![globaldashboard]("https://github.com/wazir12/CoronaTracker/blob/master/global_dashboard.png", "Dashboard showing covid-19 cases across the globe")
-![india specific dashboard]("https://github.com/wazir12/CoronaTracker/blob/master/india_specific_dashboard.png", "india covid tracker")
-![hotspot and testing center]("https://github.com/wazir12/CoronaTracker/blob/master/hotspot-and-testing-center.png", "hotspot and testing center")
-![self diagnosis chatbot]("https://github.com/wazir12/CoronaTracker/blob/master/self-diagnosis-chatbot.png", "Self diagnosis bot")
-![chat diagnosis sample result]("https://github.com/wazir12/CoronaTracker/blob/master/chat-diagnosis-sample-result.png", "self diagnosis bot result")
-
-
-
-
-
+![about page](https://github.com/wazir12/CoronaTracker/blob/master/About_page.jpg "about page")
+![side menu](https://github.com/wazir12/CoronaTracker/blob/master/side_menu.png "side menu")
+![dashboard](https://github.com/wazir12/CoronaTracker/blob/master/dashboard.png "main dashboard")
+![news](https://github.com/wazir12/CoronaTracker/blob/master/news.png  "News related to covid-19 virus")
+![globaldashboard](https://github.com/wazir12/CoronaTracker/blob/master/global_dashboard.png  "Dashboard showing covid-19 cases across the globe")
+![india specific dashboard](https://github.com/wazir12/CoronaTracker/blob/master/india_specific_dashboard.png  "india covid tracker")
+![hotspot and testing center](https://github.com/wazir12/CoronaTracker/blob/master/hotspot-and-testing-center.png  "hotspot and testing center")
+![self diagnosis chatbot](https://github.com/wazir12/CoronaTracker/blob/master/self-diagnosis-chatbot.png  "Self diagnosis bot")
+![chat diagnosis sample result](https://github.com/wazir12/CoronaTracker/blob/master/chat-diagnosis-sample-result.png "self diagnosis bot result")
 
 Application Demo
 ---------------
